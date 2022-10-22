@@ -18,6 +18,13 @@
     --max-width: 1200px;
     --footer-background: #0a3d62;
     --font-size-small: .875rem;
+    --font-size-regular: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-xlarge: 1.5rem;
+    --font-size-xxlarge: 2rem;
+    --font-weight-regular: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
 }
 
 /* debug */
@@ -53,6 +60,7 @@ body {
 }
 
 a {
+    color: inherit;
     text-decoration: none;
 }
 
@@ -137,6 +145,10 @@ h6 {
     margin-right: 20px;
 }
 
+.mb-20 {
+    margin-bottom: 20px;
+}
+
 .mr-50 {
     margin-right: 50px;
 }
@@ -201,7 +213,48 @@ h6 {
     background-color: white;
 }
 
-.btn-icon-primary {}
+.app-content {
+    background-color: var(--gray-light);
+}
+
+.block {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    font-weight: var(--font-weight-semi-bold);
+    margin-bottom: 5px;
+    color: var(--color-dark);
+}
+
+.form-row input,
+textarea {
+    font-family: var(--font-family);
+    padding: 10px 15px;
+    border: 0;
+    border-radius: var(--border-radius);
+    background-color: var(--gray-light);
+}
+
+.form-error {
+    color: var(--warning);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.form-row textarea {
+    resize: none;
+    min-height: 150px;
+}
 
 /* sidebar */
 
@@ -209,18 +262,19 @@ h6 {
     min-width: 200px;
 }
 
-.sidebar-nav li {
+.sidebar-nav a {
+    display: block;
     margin-bottom: 5px;
     padding: 10px;
     font-size: var(--font-size-small);
     cursor: pointer;
 }
 
-.sidebar-nav li:hover {
+.sidebar-nav a:hover {
     background-color: var(--primary-light);
 }
 
-.sidebar-nav li i {
+.sidebar-nav a i {
     color: var(--color-dark);
 }
 
