@@ -294,6 +294,10 @@ textarea {
     transition: opacity 0.4s;
 }
 
+.text-small {
+    font-size: var(--font-size-small);
+}
+
 /* sidebar */
 
 .sidebar {
@@ -358,4 +362,12 @@ footer {
 
 .question-content {
     border-bottom: 1px solid var(--gray-light);
+}
+
+.rating-up {
+    color: var(--primary);
+}
+
+.rating-down {
+    color: var(--warning);
 }

@@ -13,6 +13,7 @@ class HomeController extends AbstractController
     {
         $questions = [
             [
+                'id' => 1,
                 'title' => 'How to create a Symfony project1?',
                 'content' => 'I want to create a Symfony project, but I don\'t know how to do it.',
                 'rating' => 20,
@@ -23,6 +24,7 @@ class HomeController extends AbstractController
                 'nbrOfResponse' => 15,
             ],
             [
+                'id' => 2,
                 'title' => 'How to create a Symfony project2?',
                 'content' => 'I want to create a Symfony project, but I don\'t know how to do it.',
                 'rating' => 0,
@@ -33,6 +35,7 @@ class HomeController extends AbstractController
                 'nbrOfResponse' => 15,
             ],
             [
+                'id' => 3,
                 'title' => 'How to create a Symfony project3?',
                 'content' => 'I want to create a Symfony project, but I don\'t know how to do it.',
                 'rating' => -15,
