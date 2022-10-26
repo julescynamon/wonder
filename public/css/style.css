@@ -25,6 +25,7 @@
     --font-weight-regular: 400;
     --font-weight-semi-bold: 600;
     --font-weight-bold: 700;
+    --line-height-light: 30px;
 }
 
 /* debug */
@@ -140,6 +141,14 @@ small {
 
 .m-20 {
     margin: 20px;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
 }
 
 .mr-5 {
@@ -296,6 +305,39 @@ textarea {
 
 .text-small {
     font-size: var(--font-size-small);
+}
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: var(--font-weight-semi-bold);
+    z-index: 100;
+}
+
+.flash-error {
+    background-color: var(--warning);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.flash-success {
+    background-color: var(--success);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.separator {
+    border-bottom: 1px solid var(--gray-light);
+    margin: 30px 0px;
 }
 
 /* sidebar */

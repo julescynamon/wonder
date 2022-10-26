@@ -1,0 +1,16 @@
+/* CSS de la page d'une question */
+
+.question-tag {
+    background-color: var(--primary);
+    color: var(--primary-light);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semi-bold);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    margin-left: 10px;
+}
+
+.question-text {
+    line-height: var(--line-height-light);
+    white-space: pre-wrap;
+}
