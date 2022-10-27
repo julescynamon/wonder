@@ -6,17 +6,9 @@
     <ul class="sidebar-nav py-20">
     {# class="{{ app.request.pathinfo == path('app_home') ? 'active' : ""  }}" #}
         <a href="{{ path('app_home') }}" {% if app.request.pathinfo == path('app_home') %}class="active"{% endif %}
-         >
+        >
             <i class="fa-solid fa-house mr-5"></i>
             Liste des questions
-        </a >
-        <a href="">
-            <i class="fa-solid fa-pen mr-5"></i>
-            Mes questions
-        </a >
-        <a href="">
-            <i class="fa-solid fa-puzzle-piece mr-5"></i>
-            Mes réponses
         </a >
     </ul>
 </div>
