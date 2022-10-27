@@ -14,8 +14,8 @@
                     </a>
                     <div class="d-flex flex-row-nowrap justify-content-between">
                         <div class="d-flex flex-row-nowrap align-item-center">
-                            <img class="mr-10 avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="image de profil">
-                            <small>Demandé par <span class="clickable">Jean Louis</span></small>
+                            <img class="mr-10 avatar" src="{{ question.author.picture }}" alt="image de profil">
+                            <small>Demandé par <a href="{{ path('user',  { id: question.author.id } ) }}" class="clickable">{{ question.author.fullname }}</a></small>
                         </div>
                         <div class="d-flex flex-row-nowrap align-item-center">
                             <i class="fa-regular fa-comment mr-10"></i>

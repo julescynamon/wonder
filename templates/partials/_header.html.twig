@@ -8,8 +8,16 @@
             <input type="text">
         </div>
         <div>
-            <button class="btn btn-primary mr-5">Inscription</button>
-            <button class="btn btn-primary-stroke">connextion</button>
+            {% if is_granted('IS_AUTHENTICATED_FULLY')  %}
+                <div class="d-flex flex-row-nowrap align-item-center justify-content-between">
+                    <a href="{{ path('current_user') }}"><img src="{{ app.user.picture }}" alt="photo de profile" class="mr-10 avatar"></a>
+                    <span class="mr-10">Bienvenue, {{ app.user.firstname }}</span>
+                    <a href="{{ path('logout') }}" class="btn btn-primary">Déconnexion</a>
+                </div>
+            {% else %}
+                <a href="{{ path('signup') }}" class="btn btn-primary mr-5">Inscription</a>
+                <a href="{{ path('login') }}" class="btn btn-primary-stroke">connextion</a>
+            {% endif %}
         </div>
     </div>
 </header>
