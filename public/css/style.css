@@ -413,3 +413,18 @@ footer {
 .rating-down {
     color: var(--warning);
 }
+
+.fa-arrow-up,
+.fa-arrow-down {
+    cursor: pointer;
+}
+
+.fa-arrow-up:hover {
+    color: var(--primary);
+    transition: color 0.4s;
+}
+
+.fa-arrow-down:hover {
+    color: var(--warning);
+    transition: color 0.4s;
+}

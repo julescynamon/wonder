@@ -10,7 +10,9 @@
     margin-left: 10px;
 }
 
-.question-text {
+.question-text,
+.question-response-text,
+.question-response-elem {
     line-height: var(--line-height-light);
-    white-space: pre-wrap;
+    /* white-space: pre-wrap; */
 }

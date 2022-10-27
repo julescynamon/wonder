@@ -5,23 +5,17 @@
 {% block body %}
     <ul>
         {% for question in questions %}
-            <a href="{{ path('question_show', { id: question.id }) }}" class="block block-shadow d-flex flex-row-nowrap mb-20">
-                <div class="d-flex flex-column mr-20 align-item-center">
-                    <i class="fa-solid fa-arrow-up {{ question.rating > 0 ? 'rating-up' : '' }}"></i>
-                        <p class="text-small {{ question.rating > 0 ? 'rating-up' : question.rating < 0 ? 'rating-down' : '' }}">
-                            {{ question.rating }}
-                        </p>
-                    <i class="fa-solid fa-arrow-down {{ question.rating < 0 ? 'rating-down' : '' }}"></i>
-                </div>
+            <div class="block block-shadow d-flex flex-row-nowrap mb-20">
+                {% include "partials/_rating.html.twig" with { rating: question.rating, from: 'question', id: question.id } %}
                 <div class="flex-fill d-flex flex-column">
-                    <div class="mb-20 question-content pb-20">
+                    <a href="{{ path('question_show', { id: question.id }) }}" class="mb-20 question-content pb-20">
                         <h3 class="mb-20">{{ question.title }}</h3>
                         <p>{{ question.content }}</p>
-                    </div>
+                    </a>
                     <div class="d-flex flex-row-nowrap justify-content-between">
                         <div class="d-flex flex-row-nowrap align-item-center">
-                            <img class="mr-10 avatar" src="{{ question.author.avatar }}" alt="image de profil">
-                            <small>Demandé par <span class="clickable">{{ question.author.name }}</span></small>
+                            <img class="mr-10 avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="image de profil">
+                            <small>Demandé par <span class="clickable">Jean Louis</span></small>
                         </div>
                         <div class="d-flex flex-row-nowrap align-item-center">
                             <i class="fa-regular fa-comment mr-10"></i>
@@ -29,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock %}
