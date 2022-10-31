@@ -6,11 +6,13 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'L\'email est déjà utilisé')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -57,10 +59,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Url(message: 'Votre avatar doit être une URL valide')]
     private ?string $picture = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Vote::class)]
+    private Collection $votes;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->votes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -245,5 +251,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getFullname(): ?string
     {
         return $this->firstname . ' ' . $this->lastname;
+    }
+
+    /**
+     * @return Collection<int, Vote>
+     */
+    public function getVotes(): Collection
+    {
+        return $this->votes;
+    }
+
+    public function addVote(Vote $vote): self
+    {
+        if (!$this->votes->contains($vote)) {
+            $this->votes->add($vote);
+            $vote->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVote(Vote $vote): self
+    {
+        if ($this->votes->removeElement($vote)) {
+            // set the owning side to null (unless already changed)
+            if ($vote->getUser() === $this) {
+                $vote->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

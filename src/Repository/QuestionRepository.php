@@ -39,28 +39,52 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Question[] Returns an array of Question objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('q')
-//            ->andWhere('q.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('q.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getQuestionsWithAuthor()
+    {
+        return $this->createQueryBuilder('q')
+            ->leftJoin('q.author', 'a')
+            ->addSelect('a')
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Question
-//    {
-//        return $this->createQueryBuilder('q')
-//            ->andWhere('q.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function getQuestionWithCommentsAndAuthors(int $id)
+    {
+        return $this->createQueryBuilder('q')
+            ->where('q.id = :id')
+            ->setParameter('id', $id)
+            ->leftJoin('q.author', 'a')
+            ->addSelect('a')
+            ->leftJoin('q.comments', 'c')
+            ->addSelect('c')
+            ->leftJoin('c.author', 'ca')
+            ->addSelect('ca')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    //    /**
+    //     * @return Question[] Returns an array of Question objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('q')
+    //            ->andWhere('q.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('q.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Question
+    //    {
+    //        return $this->createQueryBuilder('q')
+    //            ->andWhere('q.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

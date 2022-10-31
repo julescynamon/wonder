@@ -43,9 +43,15 @@ class Question
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
+    #[ORM\OneToMany(mappedBy: 'question', targetEntity: Vote::class)]
+    private Collection $question;
+
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->votes = new ArrayCollection();
+        $this->question = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,6 +157,36 @@ class Question
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vote>
+     */
+    public function getQuestion(): Collection
+    {
+        return $this->question;
+    }
+
+    public function addQuestion(Vote $question): self
+    {
+        if (!$this->question->contains($question)) {
+            $this->question->add($question);
+            $question->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestion(Vote $question): self
+    {
+        if ($this->question->removeElement($question)) {
+            // set the owning side to null (unless already changed)
+            if ($question->getQuestion() === $this) {
+                $question->setQuestion(null);
+            }
+        }
 
         return $this;
     }

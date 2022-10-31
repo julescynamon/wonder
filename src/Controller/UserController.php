@@ -16,7 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class UserController extends AbstractController
 {
     #[Route('/user/{id}', name: 'user')]
-    #[IsGranted('IS_AUTHENTICATED_FULLY')]
+    #[IsGranted('IS_AUTHENTICATED_REMEMBERED')]
     public function userProfile(User $user): Response
     {
         $currentUser = $this->getUser();
@@ -26,7 +26,7 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/show.html.twig', [
-            'controller_name' => 'UserController',
+            'user' => $user
         ]);
     }
 
