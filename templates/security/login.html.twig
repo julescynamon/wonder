@@ -27,8 +27,13 @@
                     <li>{{ error.messageKey|trans(error.messageData, 'security') }}</li>
                 </ul>
             {% endif %}
-            <button class="btn btn-primary">Se Connecter</button>
-            <p class="mt-10">Vous n'avez pas de un compte ? Inscrivez vous <a class="redirect" href="{{ path('signup') }}">içi</a></p>
+            <div class="d-flex flex-row-nowrap">
+                <button class="btn btn-primary">Se Connecter</button>
+                <div class="d-flex flex-column ml-10">
+                    <p class="mt-10">Vous n'avez pas de un compte ? Inscrivez vous <a class="redirect" href="{{ path('signup') }}">içi</a></p>
+                    <p class="mt-10">Vous avez oublié votre mot de passe , cliquez <a class="redirect" href="{{ path('reset-password-request') }}">içi</a></p>
+                </div>
+            </div>
         </form>
 
         

@@ -155,6 +155,10 @@ small {
     margin-left: auto;
 }
 
+.ml-10 {
+    margin-left: 10px;
+}
+
 .mr-5 {
     margin-right: 5px;
 }

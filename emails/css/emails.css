@@ -9,4 +9,5 @@ a {
     margin-top: 20px;
     background-color: #12CBC4;
     border-radius: 3px;
+    display: inline-block;
 }
