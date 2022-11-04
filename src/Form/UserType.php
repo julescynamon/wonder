@@ -15,6 +15,9 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        $user = $builder->getData();
+
         $builder
             ->add('email', null,  ['label' => '*Votre Email'])
             ->add('firstname', null,  ['label' => '*Votre Prénom'])
@@ -22,6 +25,7 @@ class UserType extends AbstractType
             ->add('pictureFile', FileType::class,  [
                 'label' => '*Votre Photo',
                 'mapped' => false,
+                'required' => $user?->getPicture() ? false : true,
                 'constraints' => [
                     new Image([
                         'maxSize' => '1M',
