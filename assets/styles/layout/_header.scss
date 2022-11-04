@@ -1,0 +1,45 @@
+/* header */
+
+@use '../mixins'as *;
+
+header {
+    box-shadow: var(--box-shadow);
+}
+
+.header-logo {
+    max-width: 150px;
+}
+
+.header-logo>img {
+    width: 100%;
+}
+
+.header-search {
+    padding: 0 10px;
+    border-radius: var(--border-radius);
+    background-color: var(--gray-light);
+    max-width: 400px;
+
+    @include xs {
+        display: none;
+    }
+}
+
+.header-search input {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
+
+.burger {
+    font-size: 22px;
+}
+
+.menu-xs {
+    border-bottom: var(--border);
+    box-shadow: var(--box-shadow);
+
+    a {
+        margin: 10px 15px;
+    }
+}

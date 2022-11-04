@@ -9,15 +9,30 @@
         </div>
         <div>
             {% if is_granted('IS_AUTHENTICATED_FULLY')  %}
-                <div class="d-flex flex-row-nowrap align-item-center justify-content-between">
+                <div class="d-flex flex-row-nowrap align-item-center justify-content-between xs-hide">
                     <a href="{{ path('current_user') }}"><img src="{{ app.user.picture }}" alt="photo de profile" class="mr-10 avatar"></a>
                     <span class="mr-10">Bienvenue, {{ app.user.firstname }}</span>
                     <a href="{{ path('logout') }}" class="btn btn-primary">Déconnexion</a>
                 </div>
             {% else %}
-                <a href="{{ path('signup') }}" class="btn btn-primary mr-5">Inscription</a>
-                <a href="{{ path('login') }}" class="btn btn-primary-stroke">connexion</a>
+                <a href="{{ path('signup') }}" class="btn btn-primary mr-5 xs-hide">Inscription</a>
+                <a href="{{ path('login') }}" class="btn btn-primary-stroke xs-hide">connexion</a>
             {% endif %}
+            <div class="show-xs burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
+
     </div>
 </header>
+
+<div class="menu-xs d-flex flex-column hidden">
+    {% if is_granted('IS_AUTHENTICATED_FULLY')  %}
+        <a href="{{ path('current_user') }}" class="btn btn-primary">Profil</a>
+        <a href="{{ path('logout') }}" class="btn btn-primary-stroke">Déconnexion</a>
+    {% else %}
+        <a href="{{ path('signup') }}" class="btn btn-primary mr-5 xs-hide">Inscription</a>
+        <a href="{{ path('login') }}" class="btn btn-primary-stroke xs-hide">connexion</a>
+    {% endif %}
+</div> 
+

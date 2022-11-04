@@ -1,0 +1,178 @@
+/* general */
+@use 'mixins'as *;
+
+.content {
+    max-width: var(--max-width);
+
+    &-main {
+        padding-top: 50px;
+
+        @include xs {
+            padding: 0 0 50px 0;
+        }
+    }
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: var(--border-radius);
+    border: 0;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.xs-btn {
+    @include xs {
+        height: 60px;
+    }
+
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transition: opacity 0.4s;
+}
+
+.btn-small {
+    padding: 5px 15px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-primary-stroke {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+    background-color: white;
+}
+
+.app-content {
+    background-color: var(--gray-light);
+    padding: 20px;
+
+    @include xs {
+        padding: 15px;
+    }
+}
+
+.block {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+}
+
+.block-shadow:hover {
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow 0.4s;
+}
+
+.form-row {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    font-weight: var(--font-weight-semi-bold);
+    margin-bottom: 5px;
+    color: var(--color-dark);
+}
+
+.form-row input,
+textarea {
+    font-family: var(--font-family);
+    padding: 10px 15px;
+    border: 0;
+    border-radius: var(--border-radius);
+    background-color: var(--gray-light);
+}
+
+.form-errors {
+    color: var(--warning);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.form-row textarea {
+    resize: none;
+    min-height: 150px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.clickable {
+    color: var(--primary);
+    font-weight: var(--font-weight-semi-bold);
+    cursor: pointer;
+}
+
+.clickable:hover {
+    opacity: 0.6;
+    transition: opacity 0.4s;
+}
+
+.text-small {
+    font-size: var(--font-size-small);
+}
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: var(--font-weight-semi-bold);
+    z-index: 100;
+}
+
+.flash-error {
+    background-color: var(--warning);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.flash-success {
+    background-color: var(--success);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.separator {
+    border-bottom: 1px solid var(--gray-light);
+    margin: 30px 0px;
+}
+
+.redirect {
+    color: var(--primary);
+    font-weight: var(--font-weight-semi-bold);
+    cursor: pointer;
+}
+
+.redirect:hover {
+    opacity: 0.6;
+    transition: opacity 0.4s;
+}
+
+.xs-font {
+    @include xs {
+        font-size: 12px;
+    }
+}

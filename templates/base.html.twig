@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block styleSheets %}
@@ -19,7 +20,7 @@
     <body class="d-flex flex-column">
         {{ include('partials/_header.html.twig') }}
         <div class="app-content flex-fill d-flex flex-row-nowrap justify-content-center">
-            <div class="content d-flex flex-row-nowrap flex-fill py-50">
+            <div class="content-main content d-flex flex-row-nowrap flex-fill flex-xs-column">
                 {{ include('partials/_sidebar.html.twig') }}
                 <div class="flex-fill ">
                     {% block body %}{% endblock %}
