@@ -15,13 +15,47 @@ header {
 }
 
 .header-search {
+    position: relative;
     padding: 0 10px;
     border-radius: var(--border-radius);
     background-color: var(--gray-light);
     max-width: 400px;
+    margin-right: 10px;
+    margin-left: 10px;
 
     @include xs {
         display: none;
+    }
+
+    &-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+    }
+
+    &-result {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        max-height: 300px;
+        overflow: auto;
+        padding: 10px 0;
+
+
+        &>a {
+            padding: 10px 15px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--gray-light);
+            }
+        }
     }
 }
 
@@ -29,6 +63,7 @@ header {
     border: 0;
     outline: 0;
     background-color: transparent;
+    height: 30px;
 }
 
 .burger {

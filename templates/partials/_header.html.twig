@@ -3,9 +3,15 @@
         <a class="header-logo" href="{{ path('app_home') }}">
             <img src="{{ asset('/build/images/logo.svg') }}" alt="Logo" >
         </a>
-        <div class="header-search p-10 flex-fill">
-            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-            <input type="text">
+        <div id="search" class="header-search p-10 flex-fill d-flex flex-no-nowrap align-item-center">
+            <i class="fa-sharp fa-solid fa-magnifying-glass mr-10"></i>
+            <input @input="updateInput" ref="input" type="text" class="flex-fill">
+            <img v-if="isLoading" src="{{ asset('build/images/loading.gif') }}" class="header-search-loading">
+            <ul v-if="questions?.length" class="header-search-result d-flex flex-column">
+                <a v-for="question in questions" :key="question.id" :href="'/question/' + question.id" class="header-search-link">
+                    ${ question.title }$
+                </a>
+            </ul>
         </div>
         <div>
             {% if is_granted('IS_AUTHENTICATED_FULLY')  %}

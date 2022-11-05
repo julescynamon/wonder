@@ -11,7 +11,7 @@ Encore.setOutputPath('public/build/')
     .addEntry('question_show', './assets/styles/question_show.scss')
     .copyFiles({
         from: './assets/images',
-        pattern: /\.(png|jpg|jpeg|svg)$/,
+        pattern: /\.(png|jpg|jpeg|svg|gif)$/,
         to: 'images/[path][name].[ext]',
     })
     .splitEntryChunks()
